@@ -56,6 +56,7 @@ public class AuthService {
     }
 
     public void logout(String token) {
+
         User user = sessions.get(token);
         if (user != null) {
             userTokens.remove(user.getUsername()); // Rimuoviamo l'utente dalla mappa username-token

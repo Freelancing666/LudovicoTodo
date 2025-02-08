@@ -15,7 +15,10 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("Authorization"); // Recuperiamo il token dall'header
+        System.out.println("AuthInterceptor: preHandle called");
+        String token = request.getHeader("Authorization");
+        token = token.replace("Bearer ","").trim();// Recuperiamo il token dall'header
+        System.out.println(token);
         if (token == null) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token mancante");
             return false;

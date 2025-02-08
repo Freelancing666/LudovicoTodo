@@ -13,6 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        System.out.println("WebConfig: Registrazione dell'Interceptor");
         registry.addInterceptor(authInterceptor).addPathPatterns("/api/**"); // Protegge gli endpoint
     }
 }

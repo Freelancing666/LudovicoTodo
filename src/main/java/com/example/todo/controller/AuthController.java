@@ -40,6 +40,7 @@ public class AuthController {
     @PostMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("Authorization") String token) {
         try {
+            token = token.replace("Bearer ","").trim();
             authService.logout(token);
             return ResponseEntity.ok(Map.of("message", "Logout effettuato con successoo"));
         } catch (Exception e) {
