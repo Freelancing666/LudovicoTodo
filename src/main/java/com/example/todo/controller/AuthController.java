@@ -40,8 +40,8 @@ public class AuthController {
     @PostMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("Authorization") String token) {
         try {
-            String testo = authService.logout(token);
-            return ResponseEntity.ok(Map.of("message", "Logout effettuato con successo" + testo));
+            authService.logout(token);
+            return ResponseEntity.ok(Map.of("message", "Logout effettuato con successoo"));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", e.getMessage()));
         }

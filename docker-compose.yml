@@ -17,7 +17,7 @@ services:
     image: ardenzio/todo:latest
     ports:
       - 8093:8081
-    environment:
+    environment: #aggiunto per produzione
       MYSQL_PASS: ${MYSQL_PASS}
     networks:
       - todo-network
