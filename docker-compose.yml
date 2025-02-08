@@ -5,7 +5,7 @@ services:
     ports:
       - 3311:3306
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
       MYSQL_DATABASE: todo
     volumes:
       - todoVol:/var/lib/mysql
