@@ -57,9 +57,4 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/prova")
-    public String prova(){
-        return "Ciao";
-    }
-
 }

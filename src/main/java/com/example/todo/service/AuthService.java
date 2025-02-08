@@ -55,11 +55,12 @@ public class AuthService {
         return sessions.get(token);
     }
 
-    public void logout(String token) {
+    public String logout(String token) {
         User user = sessions.get(token);
         if (user != null) {
             userTokens.remove(user.getUsername()); // Rimuoviamo l'utente dalla mappa username-token
             sessions.remove(token); // Rimuoviamo il token dalla sessione
+            return sessions.toString();
         } else {
             throw new RuntimeException("Nessun utente loggato");
         }
