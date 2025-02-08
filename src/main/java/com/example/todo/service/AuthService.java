@@ -60,6 +60,8 @@ public class AuthService {
         if (user != null) {
             userTokens.remove(user.getUsername()); // Rimuoviamo l'utente dalla mappa username-token
             sessions.remove(token); // Rimuoviamo il token dalla sessione
+        } else {
+            throw new RuntimeException("Nessun utente loggato");
         }
     }
 
