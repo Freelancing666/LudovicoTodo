@@ -17,15 +17,16 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("AuthInterceptor: preHandle called");
         String token = request.getHeader("Authorization");
-        token = token.replace("Bearer ","").trim();// Recuperiamo il token dall'header
-        System.out.println(token);
         if (token == null) {
+            System.out.println("token mancante");
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token mancante");
             return false;
         }
+        token = token.replace("Bearer ","").trim();// Recuperiamo il token dall'header
 
         User user = authService.getUserFromToken(token); // Recuperiamo l'utente dalla sessione
         if (user == null) {
+            System.out.println("Token non valido");
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token non valido o sessione scaduta");
             return false;
         }

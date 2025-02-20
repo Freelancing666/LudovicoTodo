@@ -2,6 +2,8 @@ package com.example.todo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -9,6 +11,8 @@ public class User {
     private Long id;
     private String username;
     private String password;
+
+
 
     public Long getId() { return id; }
     public String getUsername() { return username; }
